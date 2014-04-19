@@ -33,8 +33,8 @@ mysql_database node[:wp_cookbook][:db_name] do
   only_if { node[:wp_cookbook][:wp_import] }
 end
 
-grunt_cookbook_grunt "#{node[:wp_cookbook][:dir]}/#{node[:wp_cookbook][:theme_dir]}" do
-  action :task
-  task 'default'
-end
+#grunt_cookbook_grunt "#{node[:wp_cookbook][:dir]}/#{node[:wp_cookbook][:theme_dir]}" do
+#  action :task
+#  task 'default'
+#end
 
