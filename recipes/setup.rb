@@ -11,9 +11,9 @@ execute 'Composer install' do
   command "sudo -Hu #{node[:wp_cookbook][:user]} -i bash -c 'cd #{node[:wp_cookbook][:dir]} && composer install'"
 end
 
-execute 'wp_cookbook theme npm install' do
-  command "sudo -Hu #{node[:wp_cookbook][:user]} -i bash -c 'cd #{node[:wp_cookbook][:dir]}/#{node[:wp_cookbook][:theme_dir]} && npm install'"
-end
+#execute 'wp_cookbook theme npm install' do
+#  command "sudo -Hu #{node[:wp_cookbook][:user]} -i bash -c 'cd #{node[:wp_cookbook][:dir]}/#{node[:wp_cookbook][:theme_dir]} && npm install'"
+#end
 
 unless node[:wp_cookbook][:wp_import]
   execute 'wp_cookbook WP install' do
