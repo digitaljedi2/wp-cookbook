@@ -27,7 +27,7 @@ end
 
 include_recipe 'php-fpm'
 include_recipe 'nodejs::install_from_package'
-include_recipe 'grunt_cookbook::install_grunt_cli'
+#include_recipe 'grunt_cookbook::install_grunt_cli'
 include_recipe 'composer'
 
 group 'deploy' do
