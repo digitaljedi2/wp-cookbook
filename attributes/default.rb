@@ -1,6 +1,6 @@
 default[:wp_cookbook][:user]      = 'vagrant'
 default[:wp_cookbook][:hostname]  = 'auvik-wp'
-default[:wp_cookbook][:dir]       = '/srv/www/auvik.com/web'
+default[:wp_cookbook][:dir]       = '/srv/www/auvik.com/'
 default[:wp_cookbook][:wp_cli]    = 'vendor/bin/wp'
 default[:wp_cookbook][:theme_dir] = 'web/app/themes/'
 default[:wp_cookbook][:db_name]   = 'auvik.com'
