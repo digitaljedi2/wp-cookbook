@@ -11,4 +11,4 @@ default[:wp_cookbook][:wp_admin_pass]  = 'admin'
 default[:wp_cookbook][:wp_admin_email] = 'admin@auvik.com'
 
 default[:wp_cookbook][:wp_import] = true
-default[:wp_cookbook][:wp_import_dump] = '/srv/www/auvik.com/web/wp_dev.sql'
+default[:wp_cookbook][:wp_import_dump] = 'wp_dev.sql'
