@@ -42,7 +42,7 @@ user 'deploy' do
   system   true
 end
 
-group 'www-data' do
+group 'auvik' do
   members node[:wp_cookbook][:user]
   append  true
   action  :modify
