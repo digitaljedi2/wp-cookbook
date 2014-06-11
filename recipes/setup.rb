@@ -30,13 +30,13 @@ unless node[:wp_cookbook][:wp_import]
 end
 
 
-mysql_database node[:wp_cookbook][:db_name] do
-  connection ({:host => 'localhost', :username => 'root', :password => node['mysql']['server_root_password']})
-#  sql { ::File.open("#{node[:wp_cookbook][:dir]}/#{node[:wp_cookbook][:wp_import_dump]}").read }
-  sql "use #{node[:wp_cookbook][:db_name]}; source #{node[:wp_cookbook][:wp_import_dump]};" 
-  action :query
-  only_if { node[:wp_cookbook][:wp_import] }
-end
+#mysql_database node[:wp_cookbook][:db_name] do
+#  connection ({:host => 'localhost', :username => 'root', :password => node['mysql']['server_root_password']})
+##  sql { ::File.open("#{node[:wp_cookbook][:dir]}/#{node[:wp_cookbook][:wp_import_dump]}").read }
+#  sql "use #{node[:wp_cookbook][:db_name]}; source #{node[:wp_cookbook][:wp_import_dump]};" 
+#  action :query
+#  only_if { node[:wp_cookbook][:wp_import] }
+#end
 
 # externalize conection info in a ruby hash
 mysql_connection_info = {
