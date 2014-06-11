@@ -54,7 +54,7 @@ end
 # query a database from a sql script on disk
 mysql_database node[:wp_cookbook][:db_name] do
   connection mysql_connection_info
-  sql { ::File.open("#{node[:wp_cookbook][:wp_import_dump}").read }
+  sql { ::File.open("#{node[:wp_cookbook][:wp_import_dump]}").read }
   action :query
 end
 
