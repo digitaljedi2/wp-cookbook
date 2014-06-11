@@ -59,10 +59,10 @@ mysql_database node[:wp_cookbook][:db_name] do
 end
 
 #or import from a dump file
-mysql_database node[:wp_cookbook][:db_name] do
-  connection mysql_connection_info
-  sql "source #{node[:wp_cookbook][:wp_import_dump]};"
-end
+#mysql_database node[:wp_cookbook][:db_name] do
+#  connection mysql_connection_info
+#  sql "source #{node[:wp_cookbook][:wp_import_dump]};"
+#end
 #grunt_cookbook_grunt "#{node[:wp_cookbook][:dir]}/#{node[:wp_cookbook][:theme_dir]}" do
 #  action :task
 #  task 'default'
