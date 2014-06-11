@@ -29,15 +29,40 @@ unless node[:wp_cookbook][:wp_import]
   end
 end
 
+
 mysql_database node[:wp_cookbook][:db_name] do
   connection ({:host => 'localhost', :username => 'root', :password => node['mysql']['server_root_password']})
 #  sql { ::File.open("#{node[:wp_cookbook][:dir]}/#{node[:wp_cookbook][:wp_import_dump]}").read }
-  sql "use #{node[:wp_cookbook][:db_name]}; source /vagrant/wordpress.sql;" 
+  sql "use #{node[:wp_cookbook][:db_name]}; source #{node[:wp_cookbook][:wp_import_dump]};" 
   action :query
   only_if { node[:wp_cookbook][:wp_import] }
 end
 
+# externalize conection info in a ruby hash
+mysql_connection_info = {
+  :host => "localhost",
+  :username => 'root',
+  :password => node['mysql']['server_root_password']
+}
 
+# drop if exists, then create a mysql database named DB_NAME
+mysql_database node[:wp_cookbook][:db_name] do
+  connection mysql_connection_info
+  action [:drop, :create]
+end
+
+# query a database from a sql script on disk
+mysql_database node[:wp_cookbook][:db_name] do
+  connection mysql_connection_info
+  sql { ::File.open("#{node[:wp_cookbook][:wp_import_dump}").read }
+  action :query
+end
+
+#or import from a dump file
+mysql_database "DB_NAME" do
+  connection mysql_connection_info
+  sql "source #{node[:wp_cookbook][:wp_import_dump};"
+end
 #grunt_cookbook_grunt "#{node[:wp_cookbook][:dir]}/#{node[:wp_cookbook][:theme_dir]}" do
 #  action :task
 #  task 'default'
