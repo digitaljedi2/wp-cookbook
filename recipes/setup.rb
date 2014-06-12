@@ -46,17 +46,17 @@ mysql_connection_info = {
 }
 
 # drop if exists, then create a mysql database named :wp_cookbook[:db_name]
-mysql_database node[:wp_cookbook][:db_name] do
-  connection mysql_connection_info
-  action [:drop, :create]
-end
+#mysql_database node[:wp_cookbook][:db_name] do
+#  connection mysql_connection_info
+#  action [:drop, :create]
+#end
 
 # query a database from a sql script on disk
-mysql_database node[:wp_cookbook][:db_name] do
-  connection mysql_connection_info
-  sql { ::File.open("#{node[:wp_cookbook][:wp_import_dump]}").read }
-  action :query
-end
+#mysql_database node[:wp_cookbook][:db_name] do
+#  connection mysql_connection_info
+#  sql { ::File.open("#{node[:wp_cookbook][:wp_import_dump]}").read }
+#  action :query
+#end
 
 #or import from a dump file
 #mysql_database node[:wp_cookbook][:db_name] do
