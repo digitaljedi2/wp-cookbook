@@ -22,7 +22,7 @@ unless node[:wp_cookbook][:wp_import]
   execute 'wp_cookbook WP install' do
     user node[:wp_cookbook][:user]
     cwd node[:wp_cookbook][:dir]
-    command "#{node[:wp_cookbook][:wp_cli]} core install --path=web/wp --url=http://#{node[:wp_cookbook][:hostname]}/wp --title=#{node[:wp_cookbook][:wp_title]} --admin_email=#{node[:wp_cookbook][:wp_admin_email]} --admin_password=#{node[:wp_cookbook][:wp_admin_pass]} --admin_name=#{node[:wp_cookbook][:wp_admin_user]}"
+    command "#{node[:wp_cookbook][:wp_cli]} core install --path=web/wp --url=http://#{node[:wp_cookbook][:hostname]}/wp --title='#{node[:wp_cookbook][:wp_title]}' --admin_email=#{node[:wp_cookbook][:wp_admin_email]} --admin_password=#{node[:wp_cookbook][:wp_admin_pass]} --admin_name=#{node[:wp_cookbook][:wp_admin_user]}"
     action :run
     notifies :restart, 'service[nginx]', :immediately
     not_if "#{node[:wp_cookbook][:wp_cli]} core is-installed --path=wp --url=http://#{node[:wp_cookbook][:hostname]}/wp", :user => node[:wp_cookbook][:user], :cwd => node[:wp_cookbook][:dir]
