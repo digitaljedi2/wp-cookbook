@@ -25,7 +25,13 @@ package 'php5-curl' do
   action :install
 end
 
+
 include_recipe 'php-fpm'
+node['php-fpm']['listen_owner'] = 'www-data'
+node['php-fpm']['listen_group'] = 'www-data'
+node['php-fpm']['listen_mode'] = '0660'
+
+
 include_recipe 'nodejs::install_from_package'
 #include_recipe 'grunt_cookbook::install_grunt_cli'
 include_recipe 'composer'
