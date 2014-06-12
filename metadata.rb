@@ -4,7 +4,7 @@ maintainer_email 'jpoole@digitaljedi.ca'
 license          'MIT'
 description      'Configures a webserver for WP sites'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.4.0'
+version          '0.4.1'
 
 recipe 'wp::default', 'Base server setup'
 recipe 'wp::setup',   'Setup and deploy WP for dev VM'

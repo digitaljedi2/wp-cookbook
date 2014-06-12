@@ -27,9 +27,9 @@ end
 
 
 include_recipe 'php-fpm'
-node['php-fpm']['listen_owner'] = 'www-data'
-node['php-fpm']['listen_group'] = 'www-data'
-node['php-fpm']['listen_mode'] = '0660'
+node.default['php-fpm']['listen_owner'] = 'www-data'
+node.default['php-fpm']['listen_group'] = 'www-data'
+node.default['php-fpm']['listen_mode'] = '0660'
 
 
 include_recipe 'nodejs::install_from_package'
