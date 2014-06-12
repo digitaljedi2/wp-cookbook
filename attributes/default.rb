@@ -10,5 +10,5 @@ default[:wp_cookbook][:wp_admin_user]  = 'admin'
 default[:wp_cookbook][:wp_admin_pass]  = 'admin'
 default[:wp_cookbook][:wp_admin_email] = 'admin@auvik.com'
 
-default[:wp_cookbook][:wp_import] = true
+default[:wp_cookbook][:wp_import] = false
 default[:wp_cookbook][:wp_import_dump] = '/vagrant/wordpress.sql'
