@@ -1,10 +1,10 @@
 name             'wp-cookbook'
-maintainer       'Scott Walkinshaw'
-maintainer_email 'scott.walkinshaw@gmail.com'
+maintainer       'Jonathan Poole'
+maintainer_email 'jpoole@digitaljedi.ca'
 license          'MIT'
 description      'Configures a webserver for WP sites'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.3.6'
+version          '0.3.7'
 
 recipe 'wp::default', 'Base server setup'
 recipe 'wp::setup',   'Setup and deploy WP for dev VM'
